@@ -6,11 +6,11 @@ from torchvision import models
 import os
 import numpy as np
 
-class ResNet(nn.Module):
-    def __init__(self, pre_trained=True, n_class=200, model_choice='mobilenetv2'):
+class ImageNet(nn.Module):
+    def __init__(self, pre_trained=True, n_class=200):
         super(ResNet, self).__init__()
         self.n_class = n_class
-        self.base_model = self._model_choice(pre_trained, model_choice)
+        self.base_model = self._model_choice(pre_trained)
         self.base_model.classifier[-1] = nn.Linear(self.base_model.last_channel, n_class)
         self.base_model.classifier.apply(weight_init_kaiming)
 
@@ -21,5 +21,5 @@ class ResNet(nn.Module):
         assert x.size() == (N, self.n_class)
         return x
 
-    def _model_choice(self, pre_trained, model_choice):
+    def _model_choice(self, pre_trained):
         return models.mobilenet_v2(pretrained=pre_trained)

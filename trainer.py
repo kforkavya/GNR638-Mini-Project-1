@@ -2,7 +2,7 @@ import torch
 from torchvision import transforms
 import torch.nn as nn
 import numpy as np
-from models.models_for_cub import ResNet
+from models.models_for_cub import ImageNet
 from cub import cub200
 import os
 import matplotlib.pyplot as plt
@@ -16,7 +16,7 @@ class NetworkManager(object):
 
         print('Starting to prepare network and data...')
 
-        self.net = nn.DataParallel(self._net_choice(self.options['net_choice'])).to(self.device)
+        self.net = nn.DataParallel(self._net_choice()).to(self.device)
         #self.net.load_state_dict(torch.load('/home/zhangyongshun/se_base_model/model_save/ResNet/backup/epoch120/ResNet50-finetune_fc_cub.pkl'))
         print('Network is as follows:')
         print(self.net)
@@ -111,8 +111,8 @@ class NetworkManager(object):
         plt.xlabel('epochs')
         plt.ylabel('Acc')
         plt.legend()
-        plt.title(self.options['net_choice']+str(self.options['model_choice']))
-        plt.savefig(self.options['net_choice']+str(self.options['model_choice'])+'.png')
+        plt.title("MobileNet_v2")
+        plt.savefig("MobileNet_v2.png")
 
     def _accuracy(self):
         self.net.eval()
@@ -133,15 +133,8 @@ class NetworkManager(object):
         if is_best:
             shutil.copyfile(filename, 'model_best.pth.tar')
 
-    def _net_choice(self, net_choice):
-        if net_choice=='ResNet':
-            return ResNet(pre_trained=True, n_class=200, model_choice=self.options['model_choice'])
-        elif net_choice=='ResNet_ED':
-            return ResNet_ED(pre_trained=True, pre_trained_weight_gpu=True, n_class=200, model_choice=self.options['model_choice'])
-        elif net_choice == 'ResNet_SE':
-            return ResNet_SE(pre_trained=True, pre_trained_weight_gpu=True, n_class=200, model_choice=self.options['model_choice'])
-        elif net_choice == 'ResNet_self':
-            return ResNet_self(pre_trained=True, pre_trained_weight_gpu=True, n_class=200, model_choice=self.options['model_choice'])
+    def _net_choice(self):
+        return ImageNet(pre_trained=True, n_class=200)
 
     def adjust_learning_rate(optimizer, epoch, args):
         """Sets the learning rate to the initial LR decayed by 10 every 30 epochs"""

@@ -6,41 +6,14 @@ from trainer import NetworkManager
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description='Options for base model finetuning on CUB_200_2011 datasets'
-    )
-    parser.add_argument('--batch_size', type=int, default=16,
-                        help='batch size for training')
-    parser.add_argument('--base_lr', type=float, default=0.001,
-                        help='base learning rate for training')
-    parser.add_argument('--net_choice', type=str, required=True,
-                        help='net_choice for choosing network, whose value is in ["ResNet"]')
-    parser.add_argument('--model_choice', type=int, required=True,
-                        help='model_choice for choosing depth of network, whose value is in [50, 101, 152]')
-    parser.add_argument('--epochs', type=int, default=95,
-                        help='batch size for training')
-    parser.add_argument('--momentum', type=float, default=0.9,
-                        help='momentum for SGD')
-    parser.add_argument('--weight_decay', type=float, default=1e-4,
-                        help='weight_decay for SGD')
-    parser.add_argument('--gpu_id', type=int, default=0,
-                        help='choose one gpu for training')
-    parser.add_argument('--img_size', type=int, default=448,
-                        help='image\'s size for transforms')
-    args = parser.parse_args()
-    assert args.gpu_id.__class__ == int
-
-
     options = {
-        'net_choice': args.net_choice,
-        'model_choice': args.model_choice,
-        'epochs': args.epochs,
-        'batch_size': args.batch_size,
-        'base_lr': args.base_lr,
-        'weight_decay': args.weight_decay,
-        'momentum': args.momentum,
-        'img_size': args.img_size,
-        'device': torch.device('cuda:'+str(args.gpu_id) if torch.cuda.is_available() else 'cpu')
+        'epochs': 60,
+        'batch_size': 16,
+        'base_lr': 0.001,
+        'weight_decay': 1e-4,
+        'momentum': 0.9,
+        'img_size': 448,
+        'device': torch.device('cuda:'+str(0) if torch.cuda.is_available() else 'cpu')
     }
 
     path = {
