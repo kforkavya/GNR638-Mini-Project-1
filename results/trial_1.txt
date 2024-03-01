@@ -1,0 +1,182 @@
+Epoch	TrainLoss	TrainAcc	TestAcc
+--------------------------------------------------
+In loop
+Out loop
+*1	4.9556	4.50%	17.02%
+In loop
+Out loop
+*2	4.4180	7.77%	20.42%
+In loop
+Out loop
+*3	3.4916	19.04%	26.96%
+In loop
+Out loop
+*4	2.9402	28.81%	38.92%
+In loop
+Out loop
+*5	2.5542	36.79%	46.62%
+In loop
+Out loop
+*6	2.2518	43.88%	52.35%
+In loop
+Out loop
+7	2.1058	47.63%	50.09%
+In loop
+Out loop
+*8	1.9668	50.47%	61.24%
+In loop
+Out loop
+*9	1.8414	53.67%	61.84%
+In loop
+Out loop
+*10	1.6732	57.21%	64.07%
+In loop
+Out loop
+*11	1.5598	60.16%	64.91%
+In loop
+Out loop
+12	1.5442	61.39%	61.79%
+In loop
+Out loop
+*13	1.4192	63.51%	66.31%
+In loop
+Out loop
+*14	1.3608	64.51%	66.95%
+In loop
+Out loop
+*15	1.3241	66.60%	67.85%
+In loop
+Out loop
+16	1.3103	67.03%	66.67%
+In loop
+Out loop
+17	1.2271	68.75%	67.48%
+In loop
+Out loop
+*18	1.1757	70.12%	67.95%
+In loop
+Out loop
+*19	1.1914	69.32%	70.59%
+In loop
+Out loop
+20	1.1034	71.69%	69.28%
+In loop
+Out loop
+21	1.0513	73.46%	70.23%
+In loop
+Out loop
+22	1.0501	72.71%	68.90%
+In loop
+Out loop
+*23	1.0331	73.34%	72.82%
+In loop
+Out loop
+24	1.0095	73.86%	71.28%
+In loop
+Out loop
+25	1.0247	73.84%	72.51%
+In loop
+Out loop
+*26	0.9439	75.66%	73.02%
+In loop
+Out loop
+*27	0.9441	75.69%	73.42%
+In loop
+Out loop
+28	0.9126	75.98%	72.78%
+In loop
+Out loop
+29	0.8929	77.16%	72.80%
+In loop
+Out loop
+30	0.8645	78.24%	72.13%
+In loop
+Out loop
+*31	0.6139	85.44%	79.19%
+In loop
+Out loop
+32	0.5485	86.82%	79.13%
+In loop
+Out loop
+*33	0.5368	87.72%	79.24%
+In loop
+Out loop
+*34	0.5697	86.64%	79.67%
+In loop
+Out loop
+35	0.5132	87.95%	79.20%
+In loop
+Out loop
+36	0.5131	88.09%	79.50%
+In loop
+Out loop
+37	0.4923	88.67%	79.38%
+In loop
+Out loop
+38	0.4900	88.56%	79.57%
+In loop
+Out loop
+39	0.5081	88.15%	79.58%
+In loop
+Out loop
+40	0.4866	88.57%	79.53%
+In loop
+Out loop
+*41	0.5047	88.54%	79.91%
+In loop
+Out loop
+42	0.4966	88.64%	79.70%
+In loop
+Out loop
+43	0.4927	88.49%	79.67%
+In loop
+Out loop
+44	0.4805	88.76%	79.79%
+In loop
+Out loop
+45	0.4975	88.00%	79.77%
+In loop
+Out loop
+46	0.4702	89.54%	79.57%
+In loop
+Out loop
+47	0.4704	89.01%	79.77%
+In loop
+Out loop
+48	0.4676	89.16%	79.74%
+In loop
+Out loop
+*49	0.4663	88.89%	80.08%
+In loop
+Out loop
+50	0.4435	89.64%	79.38%
+In loop
+Out loop
+51	0.4795	89.04%	79.74%
+In loop
+Out loop
+52	0.4649	89.39%	79.60%
+In loop
+Out loop
+53	0.4745	89.01%	80.00%
+In loop
+Out loop
+54	0.4644	89.04%	79.55%
+In loop
+Out loop
+*55	0.4410	89.72%	80.22%
+In loop
+Out loop
+56	0.4559	89.54%	79.88%
+In loop
+Out loop
+57	0.4472	89.76%	79.51%
+In loop
+Out loop
+58	0.4534	89.74%	79.82%
+In loop
+Out loop
+59	0.4164	90.32%	79.32%
+In loop
+Out loop
+60	0.4357	90.07%	79.53%

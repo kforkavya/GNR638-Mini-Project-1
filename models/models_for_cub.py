@@ -8,7 +8,7 @@ import numpy as np
 
 class ImageNet(nn.Module):
     def __init__(self, pre_trained=True, n_class=200):
-        super(ResNet, self).__init__()
+        super(ImageNet, self).__init__()
         self.n_class = n_class
         self.base_model = self._model_choice(pre_trained)
         self.base_model.classifier[-1] = nn.Linear(self.base_model.last_channel, n_class)
