@@ -29,6 +29,5 @@ def main():
     manager = NetworkManager(options, path)
     manager.train()
 
-
 if __name__ == '__main__':
     main()
