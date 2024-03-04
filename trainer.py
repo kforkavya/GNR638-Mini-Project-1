@@ -17,18 +17,13 @@ class NetworkManager(object):
         print('Starting to prepare network and data...')
 
         self.net = nn.DataParallel(self._net_choice()).to(self.device)
-        #self.net.load_state_dict(torch.load('/home/zhangyongshun/se_base_model/model_save/ResNet/backup/epoch120/ResNet50-finetune_fc_cub.pkl'))
         print('Network is as follows:')
         print(self.net)
-        #print(self.net.state_dict())
         self.criterion = nn.CrossEntropyLoss()
         self.solver = torch.optim.SGD(
             self.net.parameters(), lr=self.options['base_lr'], momentum=self.options['momentum'], weight_decay=self.options['weight_decay']
         )
         self.schedule = torch.optim.lr_scheduler.StepLR(self.solver, step_size=30, gamma=0.1)
-        #self.schedule = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        #    self.solver, mode='max', factor=0.1, patience=3, verbose=True, threshold=1e-4
-        #)
 
         train_transform_list = [
             transforms.RandomResizedCrop(self.options['img_size']),
@@ -68,15 +63,11 @@ class NetworkManager(object):
 
         count = 1
         for epoch in range(self.options['epochs']):
-            #print(1)
             num_correct = 0
             train_loss_epoch = list()
             num_total = 0
 
-            print("In loop")
             for imgs, labels in self.train_loader:
-                #print(count)
-                #count+=1
                 self.solver.zero_grad()
                 imgs = imgs.to(self.device)
                 labels = labels.to(self.device)
@@ -87,11 +78,8 @@ class NetworkManager(object):
                 num_total += labels.size(0)
                 train_loss_epoch.append(loss.item())
                 loss.backward()
-                #nn.utils.clip_grad_norm_(self.net.parameters(), 1.0)
                 self.solver.step()
-                #print(1)
-            print("Out loop")
-            
+
             train_acc_epoch = num_correct.detach().cpu().numpy()*100 / num_total
             avg_train_loss_epoch  = sum(train_loss_epoch)/len(train_loss_epoch)
             test_acc_epoch = self._accuracy()
@@ -102,7 +90,6 @@ class NetworkManager(object):
                 best_acc = test_acc_epoch
                 best_epoch = epoch+1
                 print('*', end='')
-                #torch.save(self.net.state_dict(), os.path.join(self.path['model_save'], self.options['net_choice'], self.options['net_choice']+str(self.options['model_choice'])+'.pkl'))
             print('{}\t{:.4f}\t{:.2f}%\t{:.2f}%'.format(epoch+1, avg_train_loss_epoch, train_acc_epoch, test_acc_epoch))
         plt.figure()
         plt.plot(epochs, test_acc, color='r', label='Test Acc')
