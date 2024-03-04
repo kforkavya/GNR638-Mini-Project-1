@@ -7,7 +7,7 @@ from trainer import NetworkManager
 
 def main():
     options = {
-        'epochs': 60,
+        'epochs': 40,
         'batch_size': 16,
         'base_lr': 0.001,
         'weight_decay': 1e-4,
